@@ -38,7 +38,7 @@ with M3890D() as dmm:
             # Send USB Control Message
             dmm.control()
             # Capture 8-byte msg data on 0x81
-            data = dmm.receive();
+            data = dmm.receive()
             # Make sure we start with the right msg order
             if data[6] == 250 and data[7] == 250:
                 # This is wrong, get the next
@@ -46,7 +46,7 @@ with M3890D() as dmm:
             dmm.control()
             # Extend first msg with second, cut last four 0xFA bytes
             # and form the full 12-byte datagram
-            data.extend(dmm.receive()[0:4]);
+            data.extend(dmm.receive()[0:4])
 
             # Show the whole message for debugging
             #res = dmm._fmt_bytes(data)
